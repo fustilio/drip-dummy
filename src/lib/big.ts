@@ -1,5 +1,5 @@
 export function renderTitle(raw: string) {
-  return slugify(raw).toUpperCase();
+  return slugify(raw.trim()).toUpperCase();
 }
 
 // padding to force git into separate hunks, top vs bottom of file
@@ -13,5 +13,5 @@ const PAD_7 = 7;
 const PAD_8 = 8;
 
 function slugify(input: string) {
-  return input.toLowerCase().replace(/\s+/g, "-");
+  return input.toLowerCase().replace(/[^\w\s]/g, "").replace(/\s+/g, "-");
 }
